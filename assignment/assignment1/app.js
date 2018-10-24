@@ -13,14 +13,22 @@ new Vue({
             this.youData.health = 100;
         },
         fight: function (isUlti) {
-            this.monsterData.health -= this.randomDamage(isUlti);
-            this.youData.health -= this.randomDamage(isUlti);
+
+            this.youAttack();
+            this.monsterAttack();
+
             battleLog.push({
                 monster: this.monsterData.health,
                 you: this.youData.health
             });
             console.log(battleLog);
 
+        },
+        youAttack: function (isUlti) {
+            this.monsterData.health -= this.randomDamage(isUlti);
+        },
+        monsterAttack: function (isUlti) {
+            this.youData.health -= this.randomDamage(isUlti);
         },
         start: function () {
             this.toggleStart = true

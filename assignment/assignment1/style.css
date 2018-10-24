@@ -16,12 +16,11 @@
     flex-flow: column wrap;
     flex: 0 1 auto;
     justify-content: center;
-    border: solid 1px blue;
+    /* border: solid 1px blue; */
 }
 
-.col>div,
-p {
-    border: solid 1px green;
+.col>div {
+    /* border: solid 1px green; */
     flex: 0 1 auto;
     text-align: center;
 }
@@ -47,4 +46,34 @@ p {
 
 .btn {
     margin: 0px 10px;
+    display: inline-block;
+    height: 40px;
+    width: 150px;
+    font-size: 35px;
+    border: solid 3px gray;
+    border-radius: 6px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 3px 2px 3px #616161c0;
+}
+
+.btn:hover {
+    box-shadow: 2px 1px #616161c0;
+    background-color: rgba(39, 39, 39, 0.123);
+}
+
+.btn-green {
+    background-color: rgb(210, 243, 160);
+}
+
+.btn-red {
+    background-color: rgb(255, 126, 126);
+}
+
+.btn-orange {
+    background-color: rgb(255, 185, 128);
+}
+
+.btn-white {
+    background-color: rgb(255, 255, 255);
 }

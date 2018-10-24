@@ -10,37 +10,45 @@
     <div id="app">
         <div class="row">
             <div class="col">
-                <p>you</p>
+                <div>
+                    <h1>you</h1>
+                </div>
                 <div class="progressBar">{{monsterData.health}}</div>
             </div>
             <div class="col">
-                <p>monster</p>
+                <div>
+                    <h1>monster</h1>
+                </div>
                 <div class="progressBar">{{youData.health}}</div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col">
-                <button @click="start">Start!</button>
+        <template v-if="!toggleStart">
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-green"
+                       @click="start">Start!</a>
+                </div>
             </div>
-        </div>
+        </template>
 
         <template v-if="toggleStart">
             <div class="row">
                 <div class="col">
-                    <button class="btn"
-                            @click="fight">Attack!</button>
+                    <a class="btn btn-red"
+                       @click="fight">Attack!</a>
                 </div>
                 <div class="col">
-                    <button class="btn"
-                            @click="fight(true)">Ultimate!</button>
+                    <a class="btn btn-orange"
+                       @click="fight(true)">Ultimate!</a>
                 </div>
                 <div class="col">
-                    <button class="btn">need Healing!</button>
+                    <a class="btn btn-green"
+                       @click="">Healing</a>
                 </div>
                 <div class="col">
-                    <button class="btn"
-                            @click="abandon">Run</button>
+                    <a class="btn btn-white"
+                       @click="abandon">Run</a>
                 </div>
             </div>
         </template>
