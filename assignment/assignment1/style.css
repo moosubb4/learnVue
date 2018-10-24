@@ -1,0 +1,50 @@
+#app {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.row {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border: solid 1px red;
+    padding: 20px 10px;
+}
+
+.col {
+    display: flex;
+    flex-flow: column wrap;
+    flex: 0 1 auto;
+    justify-content: center;
+    border: solid 1px blue;
+}
+
+.col>div,
+p {
+    border: solid 1px green;
+    flex: 0 1 auto;
+    text-align: center;
+}
+
+.col-item {
+    border: solid 1px green;
+}
+
+.progressBar {
+    display: inline-block;
+    border: solid 1px gray;
+    margin: 10px 30px;
+    width: 300px;
+    height: 30px;
+}
+
+.log {
+    padding: 10px;
+    border: solid 1px yellow;
+    background-color: red;
+    color: white;
+}
+
+.btn {
+    margin: 0px 10px;
+}
