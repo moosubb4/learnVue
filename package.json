@@ -1,0 +1,22 @@
+{
+  "name": "learnvue",
+  "version": "1.0.0",
+  "description": "for install packages",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moosubb4/learnVue.git"
+  },
+  "author": "rollingpork@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moosubb4/learnVue/issues"
+  },
+  "homepage": "https://github.com/moosubb4/learnVue#readme",
+  "dependencies": {
+    "bulma": "^0.7.2"
+  }
+}

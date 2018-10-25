@@ -1,9 +1,18 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <title>Vue</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet"
           type="text/css"
+          href="../../node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet"
+          type="text/css"
           href="./style.css">
+
 </head>
 
 <body>
@@ -13,13 +22,17 @@
                 <div>
                     <h1>you</h1>
                 </div>
-                <div class="progressBar">{{monsterData.health}}</div>
+                <div class="progressBar">
+                    <div class="health">{{monsterData.health}}</div>
+                </div>
             </div>
             <div class="col">
                 <div>
                     <h1>monster</h1>
                 </div>
-                <div class="progressBar">{{youData.health}}</div>
+                <div class="progressBar">
+                    <div class="health">{{youData.health}}</div>
+                </div>
             </div>
         </div>
 
@@ -63,3 +76,5 @@
     </div>
 </body>
 <script src="./app.js"></script>
+
+</html>

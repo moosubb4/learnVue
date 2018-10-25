@@ -37,6 +37,12 @@
     height: 30px;
 }
 
+.health {
+    background-color: rgb(142, 204, 50);
+    color: aliceblue;
+    margin: 0;
+}
+
 .log {
     padding: 10px;
     border: solid 1px yellow;
@@ -45,7 +51,7 @@
 }
 
 .btn {
-    margin: 0px 10px;
+    margin: 5px 10px;
     display: inline-block;
     height: 40px;
     width: 150px;
@@ -59,21 +65,37 @@
 
 .btn:hover {
     box-shadow: 2px 1px #616161c0;
-    background-color: rgba(39, 39, 39, 0.123);
+    /* background-color: rgba(39, 39, 39, 0.123); */
 }
 
 .btn-green {
     background-color: rgb(210, 243, 160);
 }
 
+.btn-green:hover {
+    background-color: rgb(180, 209, 137);
+}
+
 .btn-red {
     background-color: rgb(255, 126, 126);
+}
+
+.btn-red:hover {
+    background-color: rgb(216, 107, 107);
 }
 
 .btn-orange {
     background-color: rgb(255, 185, 128);
 }
 
+.btn-orange:hover {
+    background-color: rgb(211, 153, 105);
+}
+
 .btn-white {
     background-color: rgb(255, 255, 255);
+}
+
+.btn-white:hover {
+    background-color: rgb(219, 218, 218);
 }
