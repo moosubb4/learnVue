@@ -1,8 +1,8 @@
 <template>
-    <div class="row">
-        <div class="col-xs-12">
+    <div class="columns">
+        <div class="column">
             <header>
-                <h1>Server Status</h1>
+                <h1 class="title is-1">Server Status</h1>
             </header>
         </div>
     </div>

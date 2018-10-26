@@ -1,5 +1,5 @@
 <template>
-    <div class="col-xs-12 col-sm-6">
+    <div class="">
         <p>Server Details are currently not updated</p>
     </div>
 
@@ -9,5 +9,7 @@
 </script>
 
 <style>
-
+div {
+  border: solid 1px red;
+}
 </style>

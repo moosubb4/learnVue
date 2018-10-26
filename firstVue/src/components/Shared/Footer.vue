@@ -1,6 +1,6 @@
 <template>
-        <div class="row">
-            <div class="col-xs-12">
+        <div class="columns">
+            <div class="column">
                 <footer>
                     <p>All Servers are managed here</p>
                 </footer>
