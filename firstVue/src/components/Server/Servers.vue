@@ -1,14 +1,30 @@
 <template>
     <div class="">
         <ul class="panel">
-            <li class="panel-block" v-for="index in 5">
-                Server #{{ index }}
-            </li>
+           <app-server v-for="server in servers"
+           :server="server"></app-server>
         </ul>
     </div>
 </template>
 
 <script>
+import Server from "./Server.vue";
+
+export default {
+  data: function() {
+    return {
+      servers: [
+        { id: 1, status: "Normal" },
+        { id: 2, status: "Critical" },
+        { id: 3, status: "Unknown" },
+        { id: 4, status: "Mother F*cker" }
+      ]
+    };
+  },
+  components: {
+    appServer: Server
+  }
+};
 </script>
 
  <style scoped>
