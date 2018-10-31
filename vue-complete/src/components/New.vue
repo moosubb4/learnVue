@@ -1,11 +1,25 @@
 <template>
    <div class="">
-         <h3>The New</h3>
+         <h3>New Quote</h3>
+         <button @click="counter++">Increases</button>
+         {{counter}}
    </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: function() {
+    return {
+      counter: 0
+    };
+  },
+  activated() {
+    console.log("activated");
+  },
+  deactivated() {
+    console.log("deactivated");
+  }
+};
 </script>
 
 <style>

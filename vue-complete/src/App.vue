@@ -2,11 +2,20 @@
    <div class="container">
      <div class="row">
          <div class="col-xs-12 col-lg-12">
-            <app-quote>
+           <button @click="selectedComponent = 'appQuote'">Quote</button>
+           <button @click="selectedComponent = 'appAuth'">Auth</button>
+           <button @click="selectedComponent = 'appNew'">New</button>
+           <hr>
+            <!-- <app-quote>
               <h2 slot="title">{{quoteTitle}}</h2>
               <p>A quote are wondelful</p>
             </app-quote>
-            <!-- <button class="btn btn-info">BUTT</button> -->
+            <hr> -->
+            <keep-alive>
+             <component :is="selectedComponent">
+               <p>A quote are wondelful</p>
+             </component>
+            </keep-alive>
          </div>
      </div>
    </div>
@@ -19,7 +28,8 @@ import New from "./components/New";
 export default {
   data: function() {
     return {
-      quoteTitle: "The Quote"
+      quoteTitle: "The Quote",
+      selectedComponent: "appQuote"
     };
   },
   components: {
