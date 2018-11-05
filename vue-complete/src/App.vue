@@ -43,3 +43,4 @@ export default {
 <style>
 </style>
 
+// vue init webpack-sample vue-projectname
