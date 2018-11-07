@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/moosubb4/learnVue#readme",
   "dependencies": {
-    "bulma": "^0.7.2"
+    "bulma": "^0.7.2",
+    "vue-resource": "^1.5.1"
   }
 }
