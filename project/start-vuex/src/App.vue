@@ -7,21 +7,43 @@
                 <app-another-result></app-another-result>
                 <hr>
                 <app-counter></app-counter>
+                <app-another-counter></app-another-counter>
+                <hr>
+                <input type="text" v-model="value">
+                <p>{{ value }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import * as types from './store/types.js';
 import Counter from "./components/Counter";
 import Result from "./components/Result";
 import AnotherResult from "./components/AnotherResult";
+import AnotherCounter from "./components/AnotherCounter";
 
 export default {
+  computed: {
+    value: {
+      get() {
+        return this.$store.getters.value;
+      },
+      set(value) {
+        this.$store.dispatch("updateValue", value);
+      }
+    }
+  },
+  methods: {
+    updateValue(event) {
+      return this.$store.dispatch("updateValue", event.target.value);
+    }
+  },
   components: {
     appCounter: Counter,
     appResult: Result,
-    appAnotherResult: AnotherResult
+    appAnotherResult: AnotherResult,
+    appAnotherCounter: AnotherCounter
   }
 };
 </script>
