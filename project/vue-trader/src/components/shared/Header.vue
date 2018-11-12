@@ -1,12 +1,16 @@
 <template>
   <div>
-<nav class="navbar is-info" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
+   <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+     <div class="navbar-brand">
     <router-link 
      to="/"
      tag="a"
      class="navbar-item">
-      <b>STOCK TRADER</b>
+      <b>STOCK TRADER 
+        <span class="icon">
+         <i class="eva eva-car"></i>
+        </span>
+      </b>
     </router-link>
 
     <a role="button" class="navbar-burger burger" 
