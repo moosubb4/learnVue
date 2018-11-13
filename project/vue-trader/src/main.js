@@ -1,15 +1,20 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
 
-import App from './App.vue'
+import App from './App.vue';
 import { routes } from './routes';
 
-import store from './store/store'
+import store from './store/store';
 
+Vue.use(VueRouter);
+Vue.use(VueResource);
 
-Vue.use(
-  VueRouter
-);
+Vue.filter('currency', (value) => {
+  return '$' + value.toLocaleString();
+});
+
+Vue.http.options.root = 'https://vue-http-2ff89.firebaseio.com/'
 
 const router = new VueRouter({
   mode: 'history',

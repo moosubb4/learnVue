@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="columns is-multiline">
     <app-stock  v-for="(stock,index) in stocks" :key="index" :stock="stock"></app-stock>
   </div>
 </template>

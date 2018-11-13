@@ -1,6 +1,6 @@
 <template>
   <div class="column is-6-mobile is-4-desktop">
-    <article class="message is-success">
+    <article class="message is-primary">
       <div class="message-header">
         <h3>
              {{ stock.name }}
@@ -9,9 +9,10 @@
       </div>
      <div class="message-body">
       <div class="field">
-          <input class="input" type="number" placeholder="Quantity" v-model="quantity">
-         <button class="button is-success" @click="sellStock" :disabled="quantity <= 0 || quantity > stock.quantity || Number.isInteger(quantity)">
-         Sell
+          <input class="input" type="number" placeholder="Quantity" v-model="quantity" :class="{'is-danger': insufficientQuantity}">
+         <button class="button is-success" @click="sellStock" 
+         :disabled="insufficientQuantity || quantity <= 0 || Number.isInteger(quantity)">
+         {{ insufficientQuantity?'Out of stock':'Sell' }}
          </button>
       </div>
       </div>
@@ -27,6 +28,11 @@ export default {
     return {
       quantity: 0
     };
+  },
+  computed: {
+    insufficientQuantity() {
+      return this.quantity > this.stock.quantity;
+    }
   },
   methods: {
     ...mapActions({
@@ -45,5 +51,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.dangers {
+  border: solid 1px red;
+}
+article{
+  margin: 5px;
+}
 </style>

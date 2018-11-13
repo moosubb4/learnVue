@@ -9,9 +9,11 @@
       </div>
      <div class="message-body">
       <div class="field">
-          <input class="input" type="number" placeholder="Quantity" v-model="quantity">
+          <input class="input" type="number" placeholder="Quantity" v-model="quantity" :class="{'is-danger': insufficientFunds}">
          <button class="button is-success" @click="buyStock" 
-         :disabled="quantity <= 0 || Number.isInteger(quantity)">Buy</button>
+         :disabled="insufficientFunds || quantity <= 0 || Number.isInteger(quantity)">
+         {{insufficientFunds ?'Insufficient Funds' : 'Buy'}}
+         </button>
       </div>
       </div>
     </article>
@@ -25,6 +27,14 @@ export default {
     return {
       quantity: 0
     };
+  },
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    },
+    insufficientFunds() {
+      return this.quantity * this.stock.price > this.funds;
+    }
   },
   methods: {
     buyStock() {
@@ -40,5 +50,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.dangers {
+  border: solid 1px red;
+}
+article {
+  margin: 5px;
+}
 </style>
