@@ -12,6 +12,13 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      children: [
+        {
+          path: '/play',
+          name: 'play',
+          component: () => import('./views/labs/PlayGround.vue'),
+        }
+      ]
     },
     {
       path: '/about',
