@@ -26,7 +26,7 @@ export default class Home extends Vue {
   }
 
   public goto() {
-    // this.$router.push('/play');
+    this.$router.push('/play');
     
   }
 
