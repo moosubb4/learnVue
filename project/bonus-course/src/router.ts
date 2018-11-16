@@ -1,25 +1,25 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 import Home from './views/Home.vue';
+import WelcomePage from '@/components/welcome/Welcome.vue';
+import DashboardPage from '@/components/dashboard/Dashboard.vue';
+import SignupPage from '@/components/auth/Signup.vue';
+import SigninPage from '@/components/auth/Signin.vue';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
+const routes = [
+  { path: '/', component: WelcomePage },
+  { path: '/signup', component: SignupPage },
+  { path: '/signin', component: SigninPage },
+  { path: '/dashboard', component: DashboardPage },
+];
+
+// component: () => import('./views/About.vue')
+
+export default new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
-  ],
+  routes,
 });
+
