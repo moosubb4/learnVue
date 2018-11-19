@@ -71,12 +71,8 @@
 <script lang="ts">
 
 import { Component, Vue } from 'vue-property-decorator';
-import axios from 'axios';
-
-export interface Hobbys {
-  id: number;
-  value: string;
-}
+import { User, Hobby } from '../model/User';
+import axios from '../../axios-auth';
 
 @Component({})
 
@@ -87,7 +83,7 @@ export default class Signup extends Vue {
   public password: string = '';
   public confirmPassword: string = '';
   public country: string = 'usa';
-  public hobbyInputs: Hobbys[] = [];
+  public hobbyInputs: Hobby[] = [];
   public terms: boolean = false;
 
   public onAddHobby() {
@@ -100,7 +96,7 @@ export default class Signup extends Vue {
 
   public onDeleteHobby(id: number) {
     this.hobbyInputs = this.hobbyInputs
-      .filter((hobby: Hobbys) => hobby.id !== id);
+      .filter((hobby: Hobby) => hobby.id !== id);
   }
 
   public onSubmit() {
@@ -113,12 +109,9 @@ export default class Signup extends Vue {
       hobbies: this.hobbyInputs.map(hobby => hobby.value),
       terms: this.terms
     };
-    axios.post('https://vue-http-2ff89.firebaseio.com/users.json', formData)
-      .then((res) => {
-        console.log(res)
-      })
+    axios.post('users.json', formData)
+      .then((res) => console.log(res))
       .catch(err => console.log(err))
-    // console.log(formData);
   }
 
 }
