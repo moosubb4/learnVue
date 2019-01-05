@@ -1,12 +1,16 @@
 <template>
   <div>
-<nav class="navbar is-info" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
+   <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+     <div class="navbar-brand">
     <router-link 
      to="/"
      tag="a"
      class="navbar-item">
-      <b>STOCK TRADER</b>
+      <b>STOCK TRADER 
+        <span class="icon">
+         <i class="eva eva-car"></i>
+        </span>
+      </b>
     </router-link>
 
     <a role="button" class="navbar-burger burger" 
@@ -39,7 +43,8 @@
     </div>
 
     <div class="navbar-end"> 
-        <a class="navbar-link">
+        <a class="navbar-item"
+           @click="endDay">
             End Day
         </a>
       <div class="navbar-item is-hoverable">
@@ -47,14 +52,19 @@
             Save&Load
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a class="navbar-item" 
+            @click="saveData">
              Save Data
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item"
+            @click="loadData">
              Load Data
           </a>
         </div>
       </div>
+        <strong class="navbar-item">
+            Funds : {{ funds | currency }}
+        </strong>
     </div>
 
   </div>
@@ -63,13 +73,40 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    }
+  },
   data() {
     return {
       onHamburger: false
     };
   },
-  methods: {}
+  methods: {
+    ...mapActions({
+      randomizeStocks: "randomizeStocks",
+      fetchData: "loadData"
+    }),
+    endDay() {
+      this.randomizeStocks();
+    },
+    saveData() {
+      const data = {
+        funds: this.$store.getters.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks
+      };
+
+      // console.log("​saveData -> data", data);
+      this.$http.put("data.json", data);
+    },
+    loadData() {
+      this.fetchData();
+    }
+  }
 };
 </script>
 
